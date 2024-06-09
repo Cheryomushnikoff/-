@@ -271,43 +271,148 @@
 # помощью, которого пользователь может выбрать необ-
 # ходимую операцию.
 
-class Plate:
-    def __init__(self, value, prev, num):
-        self.value = value
-        self.prev = prev
-        self.num = num
+# class Plate:
+#     def __init__(self, value, prev, num):
+#         self.value = value
+#         self.prev = prev
+#         self.num = num
+#
+#
+# class Stack:
+#     def __init__(self, size):
+#         self.top = None
+#         self.size = size
+#
+#     def push(self, value):
+#         if self.is_empty():
+#             self.top = Plate(value, None, 1)
+#             return True
+#         if self.is_full():
+#             print('Стэк уже заполнен!')
+#             return False
+#         self.top = Plate(value, self.top, self.top.num + 1)
+#         return True
+#
+#     def is_full(self):
+#         return self.top.num == self.size
+#
+#     def is_empty(self):
+#         return self.top is None
+#
+#     def pop(self):
+#         if self.is_empty():
+#             print('Стэк пуст!')
+#             return None
+#         value = self.top.value
+#         self.top = self.top.prev
+#         return value
+#
+#     def num_of_elem(self):
+#         if self.is_empty():
+#             return 0
+#         return self.top.num
+#
+#     def clear(self):
+#         self.top = None
 
 
-class Stack:
-    def __init__(self, size):
-        self.top = None
-        self.size = size
+# menu = """
+# 1. помещение строки в стек;
+# 2. выталкивание строки из стека;
+# 3. подсчет количества строк в стеке;
+# 4. проверку пустой ли стек;
+# 5. проверку полный ли стек;
+# 6. очистку стека;
+# 7. получение значения без выталкивания верхней строки из стека.
+# 8. вызов меню
+# 9. выход
+# """
+#
+# stack = Stack(7)
+# print(menu)
+#
+# while True:
+#     try:
+#         answer = int(input('\nВыберите пункт из меню: '))
+#         if answer == 1:
+#             line = input('\nВведите строку для добавления в стек\n')
+#             if stack.push(line):
+#                 print(f'\nСтрока "{line}" добавлена в стек')
+#         if answer == 2:
+#             if value := stack.pop():
+#                 print(f'\nИз стека вытолкнули строку "{value}" ')
+#         if answer == 3:
+#             num = stack.num_of_elem()
+#             if num % 10 in [0, *range(5, 10)] or num in list(range(11, 20)):
+#                 word = 'строк'
+#             elif num % 10 == 1:
+#                 word = 'строкa'
+#             else:
+#                 word = 'строки'
+#             print(f'\nВ стеке {num} {word}')
+#         if answer == 4:
+#             if stack.is_empty():
+#                 print('\nСтэк пустой!')
+#             else:
+#                 print('\nСтэк не пустой!')
+#         if answer == 5:
+#             if stack.is_full():
+#                 print('\nСтэк полный!')
+#             else:
+#                 print('\nСтэк не полный!')
+#         if answer == 6:
+#             stack.clear()
+#             print('\nСтэк очищен!')
+#         if answer == 7:
+#             if stack.is_empty():
+#                 print('\nСтэк пустой!')
+#                 continue
+#             print(f'\nВерхняя строка в стеке "{stack.top.value}" ')
+#         if answer == 8:
+#             print(menu)
+#         if answer == 9:
+#             print('Выход')
+#             break
+#     except ValueError:
+#         print('\nОшибка ввода, повторите снова!')
+#         continue
 
-    def push(self, value):
-        if self.is_empty():
-            self.top = Plate(value, None, 1)
-            return
-        if self.is_full():
-            print('Стэк уже заполнен!')
-            return
-        self.top = Plate(value, self.top, self.top.num + 1)
-
-    def is_full(self):
-        return self.top.num == self.size
-
-    def is_empty(self):
-        return self.top is None
-
-    def pop(self):
-        if self.is_empty():
-            print('Стэк пуст!')
-            return None
-        value = self.top.value
-        self.top = self.top.prev
-        return value
-
-
-s = Stack(3)
-
-print(s.is_empty())
-
+# Задание 3
+# Измените стек из второго задания, таким образом,
+# чтобы его размер был нефиксированным.
+#
+# class Plate:
+#     def __init__(self, value, prev, num):
+#         self.value = value
+#         self.prev = prev
+#         self.num = num
+#
+#
+# class Stack:
+#     def __init__(self, size):
+#         self.top = None
+#
+#     def push(self, value):
+#         if self.is_empty():
+#             self.top = Plate(value, None, 1)
+#             return
+#         self.top = Plate(value, self.top, self.top.num + 1)
+#
+#     def is_empty(self):
+#         return self.top is None
+#
+#     def pop(self):
+#         if self.is_empty():
+#             print('Стэк пуст!')
+#             return None
+#         value = self.top.value
+#         self.top = self.top.prev
+#         return value
+#
+#     def num_of_elem(self):
+#         if self.is_empty():
+#             return 0
+#         return self.top.num
+#
+#     def clear(self):
+#         self.top = None
